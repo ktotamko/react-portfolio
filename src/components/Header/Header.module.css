@@ -1,0 +1,298 @@
+/* src/components/Header/Header.module.css */
+.header {
+	position: fixed;
+	width: calc(100% - 30px);
+	max-width: 1310px;
+	padding: 0 15px;
+	top: 20px;
+	z-index: 2;
+	border-radius: 14px;
+	-webkit-backdrop-filter: blur(24px);
+	backdrop-filter: blur(24px);
+	background-color: rgba(1, 14, 33, 0.35);
+	box-shadow: 0 0 0 1px hsla(0, 0%, 74%, 0.25);
+	overflow: hidden;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* Light theme override (applied via global.css or using :global) */
+:global(html.light) .header {
+	background-color: hsla(0, 0%, 100%, 0.75);
+	box-shadow: 0 0 6px #714eff30;
+}
+
+/* Pseudo-element for header background overlay */
+.header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #15033b;
+	border-radius: inherit;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+:global(html.light) .header::before {
+	display: none;
+}
+
+/* Inner container for spacing & layout */
+.headerContainer {
+	display: flex;
+	height: 60px;
+	padding-top: 14px;
+	padding-bottom: 5px;
+	transition: height 0.3s ease;
+}
+
+/* Logo link container */
+.logoLink {
+	position: relative;
+	z-index: 5;
+}
+
+/* Optional logo styling */
+.logo {
+	/* Adjust as needed */
+	max-height: 40px;
+}
+
+/* Navigation Menu container */
+.headerMenu {
+	flex: 1 1 auto;
+	display: flex;
+	position: relative;
+}
+
+/* Vertical separator between logo and menu */
+.headerMenu::before {
+	content: '';
+	width: 2px;
+	height: 35px;
+	background-color: rgba(234, 236, 240, 0.15);
+	margin-left: 25px;
+}
+
+/* Light theme vertical separator */
+:global(html.light) .headerMenu::before {
+	background-color: #714eff35;
+}
+
+/* Menu body wrapper */
+.menuBody {
+	padding-left: 25px;
+}
+
+/* Menu list styling */
+.menuList {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 35px;
+	row-gap: 3px;
+}
+
+/* Menu link styling */
+.menuLink {
+	display: block;
+	border-radius: 10px;
+	padding: 6px 14px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.62;
+	color: #fff;
+	transition: all 0.3s ease;
+}
+
+/* Light theme menu link override */
+:global(html.light) .menuLink {
+	color: #333e53;
+}
+
+/* Hover state for menu links */
+@media (any-hover: hover) {
+	.menuLink:hover {
+		border-radius: 10px;
+		background-color: #714eff30;
+		transition: all 0.5s ease;
+	}
+	:global(html.light) .menuLink:hover {
+		background-color: #714eff15;
+		color: #714eff;
+	}
+}
+
+/* Active state for menu links */
+.menuLink:active {
+	border-radius: 10px;
+	background-color: #714eff30;
+}
+
+:global(html.light) .menuLink:active {
+	background-color: #714eff15;
+	color: #714eff;
+}
+
+/* Burger Menu Button (initially hidden) */
+.iconMenu {
+	display: none;
+}
+
+/* Ensure logo and theme button share positioning */
+.logoLink,
+.headerTheme {
+	position: relative;
+	z-index: 5;
+}
+
+/* Theme toggle button */
+.headerTheme {
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: none;
+	padding: 0;
+	/* Set a default background image for dark theme */
+	background-image: var(--sun-icon);
+}
+
+/* Light theme override - Fix the selector by adding :global */
+:global(html.light) .headerTheme {
+	background-image: var(--moon-icon);
+}
+
+/* Ensure both buttons are visible */
+.headerAction,
+.headerTheme,
+.headerReset {
+	display: block;
+}
+
+/* Responsive styles for screens up to 767.98px */
+@media (max-width: 767.98px) {
+	.headerContainer {
+		column-gap: 24px;
+	}
+	.logoLink {
+		margin-top: -1px;
+	}
+	.iconMenu {
+		display: block;
+		flex: 0 0 30px;
+		height: 18px;
+		cursor: pointer;
+		position: relative;
+		z-index: 5;
+		top: 7px;
+	}
+	.iconMenu span,
+	.iconMenu::before,
+	.iconMenu::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		width: 100%;
+		height: 2px;
+		background-color: #fff;
+		transition: all 0.3s ease;
+	}
+	:global(html.light) .iconMenu span,
+	:global(html.light) .iconMenu::before,
+	:global(html.light) .iconMenu::after {
+		background-color: #714eff;
+	}
+	.iconMenu::before {
+		top: 0;
+	}
+	.iconMenu::after {
+		bottom: 0;
+	}
+	.iconMenu span {
+		top: calc(50% - 1px);
+	}
+	/* When menu is open, controlled via a global class */
+	:global(.menu-opened) .iconMenu span {
+		width: 0;
+	}
+	:global(.menu-opened) .iconMenu::before {
+		top: calc(50% - 1px);
+		transform: rotate(-45deg);
+	}
+	:global(.menu-opened) .iconMenu::after {
+		bottom: calc(50% - 1px);
+		transform: rotate(45deg);
+	}
+	/* Hide the vertical separator on small screens */
+	.headerMenu::before {
+		display: none;
+	}
+	/* Fullscreen menu styling */
+	.menuBody {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: -100%;
+		padding: 70px 15px 30px 15px;
+		overflow: auto;
+		z-index: 5;
+		transition: right 0.6s ease 0.2s;
+	}
+	.menuList {
+		row-gap: 10px;
+		flex-direction: column;
+		text-align: center;
+		align-items: stretch;
+	}
+	.menuLink {
+		font-size: 32px;
+		padding: 0;
+	}
+	:global(.menu-opened) .menuBody {
+		right: 0;
+	}
+	:global(.menu-opened) .headerContainer {
+		height: 420px;
+		transition: height 0.4s ease;
+	}
+}
+
+/* Header Action container (for theme & reset buttons) */
+.headerAction {
+	position: relative;
+}
+
+/* Theme Reset Button */
+.headerReset {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.headerReset::before {
+	content: 'X';
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	width: 8px;
+	height: 8px;
+	font-size: 8px;
+	border-radius: 50%;
+	line-height: 8px;
+	color: #000;
+	text-align: center;
+	background-color: #fff;
+	font-weight: 900;
+	z-index: 6;
+}

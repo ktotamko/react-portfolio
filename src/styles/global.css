@@ -1,0 +1,127 @@
+/* src/styles/global.css */
+
+/* Base styles and typography */
+body {
+	background-color: #030711;
+	color: #9c9c9c;
+	font-family: 'Poppins';
+	font-weight: 300;
+	transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+}
+
+/* Layout utility */
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+}
+
+/* Page layout */
+.page {
+	flex: 1 1 auto;
+}
+.page__start {
+	margin-bottom: 100px;
+}
+@media (max-width: 991.98px) {
+	.page__start {
+		margin-bottom: 50px;
+	}
+}
+
+/* CSS Variables & Theme Settings */
+:root {
+	/* Theme Colors */
+	--primary-color: #714eff;
+	--secondary-color: #2ecc71;
+
+	/* Background & Text */
+	--bg-dark: #030711;
+	--bg-light: #f8f8f8;
+	--text-dark: #9c9c9c;
+	--text-light: #333e53;
+
+	/* Transitions */
+	--transition-speed: 0.3s;
+
+	--sun-icon: url('../assets/images/sun.svg');
+	--moon-icon: url('../assets/images/moon.svg');
+}
+
+/*  Global Utility Classes  */
+.container {
+	max-width: 1310px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+/* Container System 
+[class*='__container'] {
+	max-width: 1310px;
+	margin: 0 auto;
+	padding: 0 15px;
+}*/
+
+/* Enable smooth scrolling for in-page navigation */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Global transitions */
+* {
+	transition: background-color var(--transition-speed) ease,
+		color var(--transition-speed) ease;
+}
+
+/* Theme overrides */
+html.light body {
+	background-color: var(--bg-light);
+	color: var(--text-light);
+}
+
+html.dark body {
+	background-color: var(--bg-dark);
+	color: var(--text-dark);
+}
+
+/* Burger Menu State */
+/* When the menu is open, the HTML element receives the "menu-opened" class */
+.menu-opened .icon-menu span {
+	width: 0;
+}
+
+.menu-opened .icon-menu::before {
+	top: calc(50% - 1px);
+	transform: rotate(-45deg);
+}
+
+.menu-opened .icon-menu::after {
+	bottom: calc(50% - 1px);
+	transform: rotate(45deg);
+}
+
+.menu-opened .menu__body {
+	right: 0;
+}
+
+.menu-opened .header__container {
+	height: 420px;
+	transition: height 0.4s ease 0s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/*  Additional Global Styles (if needed)  */
+/* Example: A utility class for hiding elements 
+.hidden {
+	display: none !important;
+}
+*/
