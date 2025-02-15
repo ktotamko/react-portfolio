@@ -1,0 +1,99 @@
+/* src/pages/Home/MainSection.module.css */
+.main {
+    padding-top: 8.75rem;
+    padding-bottom: 3.75rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 24px;
+  padding: 6rem 3.875rem;
+}
+@media (max-width: 991.98px) {
+	.main {
+    padding-top: 6.875rem;
+    padding-bottom: 1.875rem;
+	}
+}
+@media (max-width: 767.98px) {
+  .body {
+    align-items: center;
+    padding: 3rem 1rem;
+    flex-direction: column;
+  }
+  .content {
+    text-align: center;
+    justify-content: center;
+    align-self: stretch;
+  }
+  .actions {
+    justify-content: center;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #ededed;
+}
+
+.subtitle span,
+.title span {
+  color: var(--primary-color);
+}
+
+.actions {
+  display: flex;
+  gap: 32px;
+  align-items: flex-end;
+}
+
+.buttonLink {
+  text-decoration: none;
+}
+
+/* Images container for hero SVGs */
+.images {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  transform: scale(0);
+  transition: transform 1.2s ease;
+}
+.images img {
+	max-width: 100%;
+}
+
+.activeImages {
+  transform: scale(1);
+}
+
+.phoneDark {
+  display: block;
+}
+
+.phoneLight {
+  display: none;
+}
+
+/* Light theme override for subtitle */
+:global(html.light) .subtitle {
+  color: rgba(13, 13, 17, 0.8);
+}

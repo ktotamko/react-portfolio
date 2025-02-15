@@ -1,0 +1,26 @@
+/* src/components/Common/Title.module.css */
+.title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #ededed;
+  position: relative;
+  transform: translateY(120%) scale(1);
+  opacity: 0;
+  transition: all 0.8s ease;
+  margin-bottom: 28px;
+}
+
+.title span {
+  color: var(--primary-color);
+}
+
+.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+:global(html.light) .title {
+  color: rgba(13, 13, 17, 0.8);
+}
+

@@ -1,0 +1,53 @@
+/* src/components/Common/Button.module.css */
+
+.button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  min-width: 150px;
+  transform: translate(0, 0);
+  transition: all 0.4s ease 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+@media (any-hover: hover) {
+  .button:hover {
+    transform: translate(-3px, -6px);
+    box-shadow: 3px 6px 0px #504666;
+    background-color: #8e72ff;
+    transition: all 0.3s ease;
+  }
+}
+
+.button:active {
+  transform: translate(-1px, -2px);
+  transition: all 0.1s ease;
+  box-shadow: 1px 2px 0px #504666;
+}
+
+/* Dark variant styles */
+.buttonDark {
+  background-color: rgba(129, 129, 139, 0.2);
+}
+
+:global(html.light) .buttonDark {
+  background-color: rgba(129, 129, 139, 0.4);
+  color: rgba(13, 13, 17, 0.8);
+}
+
+@media (any-hover: hover) {
+  .buttonDark:hover {
+    background-color: rgba(216, 216, 216, 0.2);
+  }
+  :global(html.light) .buttonDark:hover {
+    background-color: rgba(51, 51, 54, 0.4);
+  }
+}

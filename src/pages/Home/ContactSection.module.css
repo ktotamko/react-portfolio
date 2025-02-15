@@ -1,0 +1,89 @@
+/* src/pages/Home/ContactSection.module.css */
+.contact {
+	padding-top: 50px;
+}
+
+.container {
+	width: 100%;
+	transform: translate(120%, 0px);
+	opacity: 0;
+}
+
+.body {
+	display: flex;
+	gap: 32px;
+	border-radius: 30px;
+	background-color: #714eff08;
+	padding: 52px 40px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media (max-width: 991.98px) {
+	.body {
+		align-items: stretch;
+		flex-direction: column;
+		row-gap: 1.875rem; /* 30px */
+	}
+	.contact {
+		padding-top: 2.5rem; /* 40px */
+	}
+}
+
+@media (max-width: 767.98px) {
+	.contact {
+		padding-top: 0.625rem; /* 10px */
+	}
+}
+
+@media (max-width: 479.98px) {
+	.actions {
+		flex-direction: column;
+	}
+}
+
+.column {
+	flex: 0 1 50%;
+	text-align: center;
+}
+
+/* Initial state for title and text with animation */
+.title {
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 1.4;
+	color: #fff;
+}
+
+.text {
+	max-width: 340px;
+	display: inline-block;
+	color: #81818b;
+	line-height: 1.5;
+}
+
+:global(html.light) .title {
+	color: rgba(13, 13, 17, 0.8);
+}
+
+:global(html.light) .text {
+	color: rgba(13, 13, 17, 0.8);
+}
+
+/* Active state: when _active is triggered via inView */
+.active {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.5s ease 0s;
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+	gap: 32px;
+	flex-wrap: wrap;
+}
+
+.buttonLink {
+	text-decoration: none;
+}

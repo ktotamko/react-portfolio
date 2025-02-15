@@ -1,0 +1,143 @@
+/* src/pages/Home/PortfolioSection.module.css */
+.portfolio {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.portfolioContainer {
+  display: flex;
+  gap: 32px;
+}
+
+.portfolioContent {
+  flex: 0 1 35%;
+  align-self: center;
+}
+
+/* Note: Header typography is handled by common Title and Text components */
+
+/* Portfolio items container with two columns */
+.portfolioItems {
+  flex: 0 1 80%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Column layout for portfolio items */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Each portfolio item is initially hidden */
+.item {
+  padding: 10px;
+  border-radius: 8px;
+  transform: translateX(200%);
+  opacity: 0;
+  transition: transform 1.5s ease, opacity 1.5s ease;
+}
+
+.item:hover {
+  background-color: rgba(129, 129, 139, 0.1);
+}
+
+:global(html.light) .item:hover {
+  background-color: #714eff15;
+  color: #714eff;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Icon container and image styles */
+.itemIcon {
+  position: relative;
+}
+
+.itemIcon img {
+  width: 100%;
+  height: auto;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  border-radius: 6px;
+  border: 0.5px solid hsla(0, 0%, 74%, 0.25);
+  max-width: 100%;
+  aspect-ratio: auto 312 / 176;
+}
+
+.itemSkills {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+/* Portfolio item title */
+.itemTitle {
+  font-weight: 400;
+  color: #e4e4e4;
+  margin-top: 8px;
+}
+
+:global(html.light) .itemTitle {
+  color: rgba(13, 13, 17, 0.8);
+}
+
+/* Caption for items (e.g., News App) */
+.caption {
+  display: block;
+  font-size: 14px;
+  color: #714eff;
+  margin-top: 4px;
+}
+
+/* Animation: When the container is active, animate items in */
+.active .item {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .portfolioContainer {
+    flex-direction: column;
+  }
+  .portfolioContent {
+    text-align: center;
+  }
+  .headerMain .actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .portfolio {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .portfolio {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 620px) {
+  .portfolioItems {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .column:first-child {
+    padding-top: 0;
+  }
+  .item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}

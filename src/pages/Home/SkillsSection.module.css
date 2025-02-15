@@ -1,0 +1,67 @@
+/* src/pages/Home/SkillsSection.module.css */
+.skills {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.container {
+  position: relative;
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 14px;
+  line-height: 1.57;
+  margin-bottom: 44px;
+  color: #fff;
+}
+
+:global(html.light) .title {
+  color: rgba(13, 13, 17);
+}
+
+.slider {
+  position: relative;
+}
+
+.item {
+  display: flex;
+  height: 125px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: rgba(129, 129, 139, 0.1);
+  border: 1px solid #bdbdbd1a;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.item:hover {
+  background-color: rgba(225, 225, 227, 0.1);
+}
+
+:global(html.light) .item {
+  background-color: #714eff08;
+}
+
+:global(html.light) .item:hover {
+  background-color: #714eff10;
+}
+
+.image img {
+  height: 60px;
+  max-width: 100%;
+}
+
+.caption {
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #fff;
+}
+
+:global(html.light) .caption {
+  color: rgba(13, 13, 17);
+}
